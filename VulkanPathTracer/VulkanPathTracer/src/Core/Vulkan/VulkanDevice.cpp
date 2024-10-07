@@ -637,8 +637,7 @@ void VulkanDevice::createBuffer(Buffer *buf, const VkBufferCreateInfo &bufCI,
 
 void VulkanDevice::copyAllocToMemory(core_internal::rendering::Buffer *buf,
                                      void *dst) {
-  auto size = buf->size;
-  vmaCopyAllocationToMemory(allocator, buf->alloc, 0, dst, size);
+  vmaCopyAllocationToMemory(allocator, buf->alloc, 0, dst, buf->size);
 }
 
 void VulkanDevice::copyMemoryToAlloc(core_internal::rendering::Buffer *buf,
